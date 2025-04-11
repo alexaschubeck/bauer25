@@ -428,7 +428,8 @@ https://www.freeformatter.com/usa-state-list-html-select.html-->
                     <td colspan="4" class="center-content">
                         <input type="submit" name="submit" value="Submit">
                         <input type="reset" name="reset" value="Reset">
-                        <input type="button" name="review" value="Review" onclick="reviewForm()"
+                        <input type="button" name="review" value="Review" onclick="reviewForm()">
+                        <input type="button" name="validate" id="validate" value="Validate" style="font-family: pick a font;" onclick="validateEverything()"
                         />
                     </td>
                 </tr>
@@ -455,6 +456,13 @@ https://www.freeformatter.com/usa-state-list-html-select.html-->
     </footer>  
 
     <script src="hw3 javascript.js"></script>
+    
+    <div id="alert-box">
+    <div id="alert-content">
+        <h4>Please fill out all required fields or any other message you want</h4>
+        <button id="close-alert">OK</button>
+    </div>
+</div>
 </body>
 
 </html>
