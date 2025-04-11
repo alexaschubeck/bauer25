@@ -217,3 +217,14 @@ td.output {
     padding: 10px;
     border-spacing: 2px;
 }
+//* ADD STYLING for alert box**********************
+//*- **Purpose:** Styles the alert box to cover the entire screen.
+//*- **Some of the properties you want to add:**
+  //*  - `display: none;`: Hides the alert box by default.
+   //* - `position: fixed;`: Ensures the box stays in the same position even when scrolling.
+   //* - `z-index: 9999;`: Places the box on top of other elements.*
+
+
+#alert-box {
+    
+}
