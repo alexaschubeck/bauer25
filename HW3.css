@@ -228,3 +228,68 @@ td.output {
 #alert-box {
     
 }
+#alert-content {
+    background-color: pick a color;
+    border-radius: 10px;
+    width: _px;
+    height: _px;
+    margin: auto;
+    margin-top: _px;
+    padding: _px;
+    text-align: center;
+}
+- Styles the alert box's content area.
+- **New Features:**
+    - `border-radius: 10px;`: Adds rounded corners.
+    - `margin: auto;`: Centers the content horizontally.
+    - `margin-top: _px;`: Adds spacing from the top of the screen.
+    - `padding: _px;`: Creates spacing inside the box.
+
+Style the header
+#alert-content h4 {
+   
+}
+#close-alert {
+    background-color: pick a color;
+    border-width: 1px;
+    border-style: solid;
+    color: pick a color;
+    border-color: pick a color;
+    font-size: _px;
+    font-weight: bold;
+    height: _px;
+    width: _px;
+    border-radius: _px;
+    cursor: pointer;
+    margin-top: _px;
+    text-align: center;
+    font-family: pick a font;
+}
+- **New Features:**
+    - `border-radius: _px;`: Adds rounded edges for a modern look.
+    - `cursor: pointer;`: Changes the cursor to a pointer when hovering over the button.
+    - `margin-top: _px;`: Adds spacing between the button and the alert message.
+
+.pword-message {
+    text-align: right;
+    font-family: pick a font;
+    font-weight: normal;
+    position: relative;
+    left: _px;
+    background: transparent;
+    padding: _px;
+    border-spacing: _px;
+    border-radius: _px;
+    color: red;
+}
+
+table.output,
+tr.output,
+td.output {
+    
+}
+
+td.outputdata {
+    
+}
+
