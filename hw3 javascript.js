@@ -1,9 +1,9 @@
 /*
 Name: Alexa Schubeck
 Date created: 02/05/25
-Date last edited: 02/09/25
-Version: 1.2
-Description: Homework 2 Javascript file
+Date last edited: 04/11/25
+Version: 1.3
+Description: Homework 3 Javascript file
 */
 
 //JavaScript code to display today's date
@@ -20,7 +20,58 @@ slider.oninput = function ()
 {
     output.innerHTML = this.value;
 };
+//Edit to validate first name ************************
+function validateMini() {
+    let mini = document.getElementById("mini").value;
+    const namePattern = /^[A-Z]+$/;
 
+    mini = mini.toUpperCase();
+    document.getElementById("mini").value = mini;
+
+    if (!mini.match(namePattern)) {
+        document.getElementById("mini-error").innerHTML = 
+        "Middle initial must be a single uppercase letter";
+        return false;
+    } else {
+        document.getElementById("mini-error").innerHTML = "";
+        return true;
+    }
+}
+
+//validate middle initial (CHECK VARIABLE NAME)***************
+function validateMini() {
+    let mini = document.getElementById("mini").value;
+    const namePattern = /^[A-Z]+$/;
+
+    mini = mini.toUpperCase();
+    document.getElementById("mini").value = mini;
+
+    if (!mini.match(namePattern)) {
+        document.getElementById("mini-error").innerHTML = 
+        "Middle initial must be a single uppercase letter";
+        return false;
+    } else {
+        document.getElementById("mini-error").innerHTML = "";
+        return true;
+    }
+}
+//Edit to validate last name**************
+function validateMini() {
+    let mini = document.getElementById("mini").value;
+    const namePattern = /^[A-Z]+$/;
+
+    mini = mini.toUpperCase();
+    document.getElementById("mini").value = mini;
+
+    if (!mini.match(namePattern)) {
+        document.getElementById("mini-error").innerHTML = 
+        "Middle initial must be a single uppercase letter";
+        return false;
+    } else {
+        document.getElementById("mini-error").innerHTML = "";
+        return true;
+    }
+}
 //Javascript Validation for Patient Date of Birth
 function validateDOB(){
     dob = document.getElementById("dob");
@@ -66,6 +117,20 @@ function validateSSN()
         return true;
     }
 }  
+
+//City Validation
+
+function validateCity() {
+    city = document.getElementById("city").value.trim();
+
+    if (!city) {
+        document.getElementById("city-error").innerHTML = "City can't be blank";
+        return false;
+    } else {
+        document.getElementById("city-error").innerHTML = "";
+        return true;
+    }
+}
 
 //JavaScript Zip Code Validation 
 function validateZip()
@@ -135,6 +200,56 @@ function validatePhone()
         return true;
     }
 }
+
+//Validate EVERYTHING- this enables (or disables) the submit button depending on if the use inputs valid data or not
+function validateEverything() {
+    let valid = true;
+
+    if (!validateFname()) {
+        valid = false;
+    }
+    if (!validateMini()) {
+        valid = false;
+    }
+    if (!validateLname()) {
+        valid = false;
+    }
+    if (!validateDob()) {
+        valid = false;
+    }
+    if (!validateSsn()) {
+        valid = false;
+    }
+    if (!validateAddress1()) {
+        valid = false;
+    }
+    if (!validateCity()) {
+        valid = false;
+    }
+    if (!validateZcode()) {
+        valid = false;
+    }
+    if (!validateEmail()) {
+        valid = false;
+    }
+    if (!validatePhone()) {
+        valid = false;
+    }
+    if (!validateUid()) {
+        valid = false;
+    }
+    if (!validatePword()) {
+        valid = false;
+    }
+    if (!confirmPword()) {
+        valid = false;
+    }
+     if (valid) {
+         document.getElementById("submit").disabled = false;
+     } else{
+        showAlert();
+     }
+ }
 //JavaScript User ID Validation
 //New features: Min & Max character, converts UID to lowercase
 function validateUid()
@@ -230,3 +345,14 @@ function reviewInput() {
 //Remove review data
 function removeReview() {
     document.getElementById("showInput").innerHTML = "";
+}
+
+function showAlert() {
+    var alertBox = document.getElementById("alert-box");
+    var closeAlert = document.getElementById("close-alert");
+
+    alertBox.style.display = "block";
+    closeAlert.onclick = function() {
+        alertBox.style.display = "none";
+    };
+}
