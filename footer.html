@@ -4,46 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="A fun easter egg page with a skeleton pun!">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="hw1.css">
-    <title>Contact Us | Houston Spine Center</title>
-<script type='text/javascript' src='https://productionstage-hostingstack-serverbucket50ee8d24-18stefou6iti3.s3.amazonaws.com/R4Y9PmLsSsvLzR-CxlXfE7zYyfwDXsvFnaidYJkKHsyU_4nX0cm4rP5Nbq9Y31sZmVlkO_elA-cJGjtbOoFFiA=='></script></head>
+    <link rel="stylesheet" href="HW3.css">
+    <title>Easter Egg | Houston Spine Center</title>
+</head>
 
 <body>
     <header>
-        <table width="100%">
-            <tr>
-                <td valign="top" align="left" width="20%">
-                    <div class="image">
-                        <img align="center" src="Houston Spine Center Logo.png" width="80px" id="logo" alt="Houston Spine Center Logo"/>
-                    </div>
-                </td>
-                <td>
-                    <h2>Houston Spine Center</h2>
-                </td>
-                <td valign="bottom" align="right" width="20%">
-                    <p>Today's Date: <span id="today"></span></p>
-                </td>
-            </tr>
-        </table>
+        <div class="header-container">
+                 <img src="Houston_Spine_Center.png" width="80px" id="logo" alt="Houston Spine Center Logo" 
+                        <h2>Houston Spine Center</h2>
+        </div>
     </header>
 
     <hr>
 
-    <!--Thank you Response Message-->
     <main>
-        <h1>Thank you for contacting our office! We will get back to you soon!</h1>
+<!-- Spooky Music -->
+  <audio autoplay loop>
+            <source src="spooky-music.mp3" type="audio/mpeg">
+            
+        </audio>
+
+        <div class="easter-egg-message">
+            <h1>You've found our hidden page—you're  in for a really humerus treat!</h1>
+                <p>We hope this sent chills down your spine!</p>
+        </div>
     </main>
 
-    <hr>
+    <div class="dancing-skeletons">
+        <img src="skeleton1-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
+        <img src="skeleton2-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
+        <img src="skeleton4-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
+    </div>
 
-    <!--Copyright Symbol-->
-    <footer>
-        <p id="footer">&#169; 2025 Houston Spine Center | <a href="footer.html">Contact Us!</a></p>
-    </footer>
+       <footer>
+    <p>&#169; 2025 Houston Spine Center <a href="footer.html">Contact Us!</a></p>
+</footer>
 
-    <script src="hw1.js"></script>
+    <script src="hw3 javascript.js"></script>
 </body>
 
 </html>
