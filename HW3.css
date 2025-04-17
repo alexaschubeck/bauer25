@@ -43,9 +43,9 @@ body
 form 
 {
     flex-grow: 1;
-    width: 80%; /* Adjust the width of the form */
-    max-width: 800px; /* Set a maximum width for the form */
-    margin: 20px 0; /* Add margin to the form */
+    width: 80%; 
+    max-width: 800px; 
+    margin: 20px 0; 
 }
 
 h1, h2 {
@@ -284,15 +284,6 @@ td.output {
     color: #ffffff;
 }
 
-table.output,
-tr.output,
-td.output {
-    
-}
-
-td.outputdata {
-    
-}
 /* just trying out something silly & fun :P*/
 /* Skeleton container */
 .dancing-skeletons {
@@ -302,13 +293,13 @@ td.outputdata {
     width: 100%;
     height: 100%;
     pointer-events: none; /* Prevent skeletons from blocking interactions */
-    z-index: 1000; /* Ensure this is higher than other elements */
+    z-index: 1000; 
 }
 
 /* Individual skeletons */
 .skeleton {
     position: absolute;
-    width: 100px; /* Adjust size */
+    width: 100px; 
     animation: dance 2s infinite ease-in-out;
 }
 
@@ -399,5 +390,56 @@ button,
     padding: 5px 10px; 
     border-radius: 5px;
     cursor: pointer;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px; 
+}
+
+.logo-and-title {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.logo-and-title img {
+    margin-bottom: 10px; 
+}
+
+.logo-and-title h2 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1.5em; 
+    margin: 0; 
+}
+
+#today {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1em; 
+    color: #555; 
+    margin: 0; 
+    text-align: right; 
+}
+
+.header-container img {
+    margin-bottom: 10px; 
+}
+
+.header-container h2 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1.5em; 
+    margin: 0; 
+}
+
+#side-image {
+    position: fixed;
+    top: 0; 
+    right: 0; 
+    height: 100vh; 
+    width: auto; 
+    z-index: -1; 
 }
 

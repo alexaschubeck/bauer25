@@ -10,19 +10,13 @@
 
 <body>
     <header>
-        <table width="100%">
-            <tr>
-                <td valign="top" align="left" width="20%">
-                    <img src="Houston_Spine_Center.png" width="150px" id="logo" alt="Houston Spine Center Logo" />
-                </td>
-                <td align="center">
-                    <h2>Houston Spine Center</h2>
-                </td>
-                <td valign="bottom" align="right" width="20%">
-                    <p>Today's Date: <span id="today"></span></p>
-                </td>
-            </tr>
-        </table>
+        <div class="header-container">
+            <div class="logo-and-title">
+                <img src="Spine-logo.png" width="150px" id="logo" alt="Houston Spine Center Logo" />
+                <h2>Houston Spine Center</h2>
+            </div>
+            <div id="today"></div>
+        </div>
     </header>
 
     <main>
@@ -401,11 +395,41 @@ https://www.freeformatter.com/usa-state-list-html-select.html-->
     </div>
 </div>
 
-<div class="dancing-skeletons">
-    <img src="skeleton1-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
-    <img src="skeleton2-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
-    <img src="skeleton4-unscreen.gif" alt="Dancing Skeleton" class="skeleton" />
-</div>
+<img src="your-image.png" id="side-image" alt="Side Image" />
+
+<style>
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Space between the logo/title and the date */
+    align-items: center; /* Align items vertically */
+    padding: 20px; /* Optional: Add padding around the header */
+}
+
+.logo-and-title {
+    display: flex;
+    flex-direction: column; /* Stack the logo and title vertically */
+    align-items: center; /* Center-align the logo and title horizontally */
+    text-align: center; /* Center-align the text */
+}
+
+.logo-and-title img {
+    margin-bottom: 10px; /* Add space between the logo and the title */
+}
+
+.logo-and-title h2 {
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+    font-size: 1.5em; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
+}
+
+#today {
+    font-family: 'Poppins', sans-serif; /* Match the font style */
+    font-size: 1em; /* Adjust font size */
+    color: #555; /* Optional: Change the color of the date */
+    margin: 0; /* Remove default margin */
+    text-align: right; /* Ensure the date is right-aligned */
+}
+</style>
 
 </body>
 
