@@ -2,50 +2,66 @@
 Name: Alexa Schubeck
 Date created: 02/05/25
 Date last edited: 04/13/25
-Version: 1.1
-Description: Homework 3 CSS 
-*/
+Version: 1.3
+Description: Homework 3 CSS
 
-
-/* Color Palette from logo 
-    Blue Accent: #4c99c6
-    White: #faf7f2
-    black: #231f20
-*/
-
-/* Fonts 
-    Heading Font: Poppins, bold
-    Subheader Font: Poppins, regular
-    body text: Montserrat, regular
-
-*/
-
-header 
-{
-    width: 100%;
-    background-color: #4c99c6;
-    padding: 20px 0; 
-}
-
-body 
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+/* General Styles */
+body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(#4c99c6,White);
+    background: linear-gradient(to bottom, #1e3a8a, #e0f7fa); /* Example colors */
     margin: 0;
-    height: 100%;
-    min-height: 100vh;
+    padding: 0;
+    text-align: center;
 }
 
-form 
-{
+/* Header Styles */
+header {
+    background-color: #4c99c6; /* Adjust to your preferred color */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-and-text {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Add spacing between the logo and text */
+}
+
+#logo {
+    max-width: 80px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    margin: 0;
+    padding-top: 10px; /* Add padding to lower the title */
+    text-align: center; /* Ensure the title is centered */
+}
+
+#today {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    text-align: right;
+}
+
+form {
     flex-grow: 1;
-    width: 80%; 
-    max-width: 800px; 
-    margin: 20px 0; 
+    width: 80%;
+    max-width: 800px;
+    margin: 200px 0;
 }
 
 h1, h2 {
@@ -58,53 +74,117 @@ h1, h2 {
 main {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-    flex-grow: 1;
+        flex-grow: 1;
 }
 
-.image {
-    text-align: left;
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-.td1 {
-    text-align: right;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-    
+td, th {
+    padding: 10px;
+    vertical-align: top;
 }
 
 th {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5em; /* 1.5 times the current font size */
+    font-size: 1.5em;
     font-weight: bold;
-    padding: 10px 0; /* Add padding to table headers */
+    padding: 10px 0;
 }
 
-td
-{
+.td1 {
     text-align: right;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-   
+    padding-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
 }
 
+td input, td select, td textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#dob, #ssn {
+    width: 100%; 
+    max-width: 300px;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1em; 
+    box-sizing: border-box;
+}
+
+td {
+    vertical-align: middle; 
+}
+#side-image {
+    position: fixed; /* Keeps the image fixed on the right side */
+    top: 50%; /* Vertically centers the image */
+    right: 10px; /* Adjusts the distance from the right edge */
+    transform: translateY(-50%); /* Centers the image vertically */
+    max-width: 800px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1000; /* Ensure the image is above other elements */
+}
+/* Input Fields */
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="date"],
 textarea,
-select 
-{
-    width: 100%;
+select {
+    width: 50%;
+    max-width: 300px;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #4c99c6;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
-/* Outline styles for focusable elements*/
+
+#address1, #address2,
+#fname, #lname,
+#city, #tel, #email {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background-color: #be6fbb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #4c99c6;
+}
+
 button:focus,
 input:focus,
 select:focus,
@@ -113,124 +193,61 @@ textarea:focus {
     outline-offset: 2px;
 }
 
-.radio-container label
-{
-    display: inline-block;
-    margin-right: 10px;
+/* Radio Buttons */
+.radio-container {
+    display: flex; /* Use flexbox to align radio buttons horizontally */
+    gap: 15px; /* Add spacing between the radio buttons */
+    align-items: center; /* Align radio buttons and labels vertically */
 }
 
-.checkbox-container 
-{
+.radio-container label {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    margin-right: 10px; /* Add spacing between labels */
+}
+
+.radio-container input[type="radio"] {
+    margin-right: 5px; /* Add spacing between the radio button and its label */
+}
+
+/* Checkboxes */
+.checkbox-container {
     display: flex;
     flex-direction: column;
 }
 
-.checkbox-container label 
-{
+.checkbox-container label {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
-.center-content
-{
+/* Center Content */
+.center-content {
     text-align: center;
 }
 
-footer
-{
-    display: flex;
+/* Footer */
+footer {
+    background-color: #3a7ca5;
+    color: white;
+    padding: 10px 0;
+    position: relative;
     bottom: 0;
     width: 100%;
-    background-color: #4c99c6;
-    height: 2.0rem;
-}
-#footer 
-{
-    text-align: right;
-    font-family: 'Poppins', sans-serif;
-    font-weight: normal;
-    margin-right: 10px;
-}
-label
-{
-    text-align: right;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-input
-{
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-textarea
- {
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-#today
- {
-    text-align: left;
-    font-family: 'montserrat', sans-serif;
-    font-weight: normal;
-    margin-right: 5px;
-}
-p
-{
-    text-align: right;
-    font-family: 'Montserrat' sans-serif;
-    font-weight: normal;
-}
-.error{
-    color:firebrick;
-    font-size:0.8em;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-/*New properties:
-container alignment, transparent background, spacing inside the container, & rounded edges*/
-.pword-message {
-    text-align: right;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-    position: relative;
-    left: 10px;
-    background: transparent;
-    padding: 10px;
-    border-spacing: 2px;
-    border-radius: 5px;
-    color: red;
-}
-#review {
-    margin-top:5px;
-
-}
-table.output,
-tr.output,
-td.output {
-    width :500px;
-    background-color:honeydew;
-    padding: 10px;
-    border-spacing: 2px;
-    border-radius: 20px;
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
-    border: 1px solid #4c99c6;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.9em;
-    background-color: #f9f9f9;
-}
-td.output {
-    width: 500px;
-    background-color:honeydew;
-    padding: 10px;
-    border-spacing: 2px;
+    text-align: center;
 }
 
+/* Error Messages */
+.error {
+    color: firebrick;
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Alert Box */
 #alert-box {
     position: fixed;
     top: 20%;
@@ -241,17 +258,16 @@ td.output {
     padding: 20px;
     border-radius: 10px;
     z-index: 1000;
-    display: none; /* Hidden by default */
+    display: none;
 }
 
 #alert-content {
-    background-color: pink; /* pink is fun! */
-    border-radius: 10px; /* Rounded corners */
+    background-color: pink;
+    border-radius: 10px;
     width: 300px;
     height: 200px;
-    margin: auto; 
-    margin-top: 50px; 
-    padding: 20px; 
+    margin: auto;
+    padding: 20px;
     text-align: center;
 }
 
@@ -263,11 +279,9 @@ td.output {
 }
 
 #close-alert {
-    background-color: lightgreen; 
-    border-width: 1px;
-    border-style: solid;
+    background-color: lightgreen;
+    border: 1px solid #3a7ca5;
     color: white;
-    border-color: #4c99c6;
     font-size: 14px;
     font-weight: bold;
     height: 30px;
@@ -280,26 +294,24 @@ td.output {
 }
 
 #close-alert:hover {
-    background-color: #3a7ca5; /* Darker blue */
+    background-color: #3a7ca5;
     color: #ffffff;
 }
 
-/* just trying out something silly & fun :P*/
-/* Skeleton container */
+/* Skeleton Animations */
 .dancing-skeletons {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Prevent skeletons from blocking interactions */
-    z-index: 1000; 
+    pointer-events: none;
+    z-index: 1000;
 }
 
-/* Individual skeletons */
 .skeleton {
     position: absolute;
-    width: 100px; 
+    width: 100px;
     animation: dance 2s infinite ease-in-out;
 }
 
@@ -329,32 +341,14 @@ td.output {
     left: 80%;
     animation: wiggle 1.5s infinite ease-in-out;
 }
-/*please dont take off points for this plz*/
-/* Dancing animation */
+
+/* Animations */
 @keyframes dance {
     0%, 100% {
         transform: translateY(0) rotate(0deg);
     }
     50% {
         transform: translateY(-20px) rotate(10deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
     }
 }
 
@@ -379,67 +373,49 @@ td.output {
     }
 }
 
-button,
-#validate {
+/* Centered Container */
+.centered-container {
+    text-align: center; /* Center-align the entire container */
+    margin: 20px 0; /* Add spacing above and below the container */
+}
+
+/* Checkbox Title */
+.checkbox-title {
+    display: block; /* Ensure the label is on its own line */
     font-family: 'Poppins', sans-serif;
-    font-size: 0.625em; 
-    font-weight: normal;
-    background-color: #4c99c6;
-    color: white;
-    border: none;
-    padding: 5px 10px; 
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px; /* Add spacing between the label and checkboxes */
+    text-align: center;
 }
 
-.header-container {
+/* Checkbox Container */
+.checkbox-container {
+    display: flex; /* Use flexbox to create columns */
+    justify-content: center; /* Center the columns horizontally */
+    gap: 20px; /* Add spacing between the columns */
+}
+
+/* Checkbox Column */
+.checkbox-column {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px; 
+    flex-direction: column; /* Stack checkboxes vertically in each column */
+    gap: 10px; /* Add spacing between each checkbox */
 }
 
-.logo-and-title {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
+/* Checkbox Column Label */
+.checkbox-column label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
 }
 
-.logo-and-title img {
-    margin-bottom: 10px; 
+/* Wrapper */
+.wrapper {
+    max-width: 1200px; /* Set a maximum width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px; /* Add padding for spacing */
+    text-align: left; /* Ensure text aligns properly */
 }
 
-.logo-and-title h2 {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1.5em; 
-    margin: 0; 
-}
 
-#today {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1em; 
-    color: #555; 
-    margin: 0; 
-    text-align: right; 
-}
-
-.header-container img {
-    margin-bottom: 10px; 
-}
-
-.header-container h2 {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1.5em; 
-    margin: 0; 
-}
-
-#side-image {
-    position: fixed;
-    top: 0; 
-    right: 0; 
-    height: 100vh; 
-    width: auto; 
-    z-index: -1; 
-}
 

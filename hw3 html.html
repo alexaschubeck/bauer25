@@ -6,385 +6,399 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="HW3.css"> 
     <title>New Patient Registration | Houston Spine Center</title>
+    <style>
+        .checkbox-title {
+            text-align: center !important;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #1e3a8a, #e0f7fa); /* Example gradient */
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center-aligns text inside the body */
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo-and-title">
-                <img src="Spine-logo.png" width="150px" id="logo" alt="Houston Spine Center Logo" />
-                <h2>Houston Spine Center</h2>
+    <div class="wrapper">
+        <header>
+            <div class="header-container">
+                <div class="logo-and-text">
+                    <img src="Spine-logo.png" id="logo" alt="Houston Spine Center Logo" />
+                    <h2>Houston Spine Center</h2>
+                </div>
+                <div id="today"></div>
             </div>
-            <div id="today"></div>
+        </header>
+
+        <main>
+            <form id="signup" action="thankyou.html">
+                <table>
+                    <tr>
+                        <th colspan="4">New Patient Registration</th>
+                    </tr>
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="fname">First Name:</label></td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="fname" 
+                                id="fname" 
+                                maxlength="30" 
+                                required
+                                title="Only letters, apostrophes, and dashes allowed"
+                                pattern="[A-Za-z'-]{1,30}"
+                                onblur="validateFname()"
+                                placeholder="First Name"
+                            />
+                            <span class="error" id="fname-error"></span>
+                        </td>
+
+                        <td class="td1"><label for="mname">Middle Initial:</label></td>
+                        <td>
+                            <input
+                                type="text"
+                                name="mname"
+                                id="mname" 
+                                maxlength="1" 
+                                title="Enter Middle Initial"
+                                placeholder="M"
+                                pattern="[a-zA-Z']{0,1}"
+                                onblur="validateMname()"
+                            />
+                            <!-- Error message for middle initial -->
+                            <span class="error" id="mname-error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td1"><label for="lname">Last Name:</label></td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="lname" 
+                                id="lname" 
+                                maxlength="30" 
+                                required
+                                title="Only letters, apostrophes, and dashes allowed"
+                                pattern="[A-Za-z'-]{1,30}"
+                                onblur="validateLname()"
+                                placeholder="Last Name"
+                            />
+                            <span class="error" id="lname-error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td1"><label for="SSN">Social Security Number:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="password" 
+                                minlength="9"
+                                maxlength="11"
+                                name="SSN"
+                                id="SSN" 
+                                required
+                                title="Please enter your SSN"
+                                placeholder="XXX-XX-XXXX"
+                                onblur="validateSSN()"
+                            />
+                            <span class="error" id="SSN-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="dob">Date of Birth:</label></td>
+                        <td colspan="4">
+                            <input
+                                type="date"
+                                name="dob"
+                                id="dob"
+                                onblur="validateDob()"
+                                placeholder="MM/DD/YYYY"
+                                required
+                            />
+                            <span class="error" id="dob-error"></span>
+                        </td>
+                    </tr>
+    <!--Gender Radio Buttions (Male, Female, Non-Binary)-->
+                    <tr>
+        <td class="td1"><label for="gender">Gender:</label></td>
+        <td colspan="4">
+            <input 
+                type="radio" 
+                name="gender" 
+                id="male" 
+                value="male" 
+                required>
+            <label for="male">Male</label>
+            
+            <input 
+                type="radio" 
+                name="gender" 
+                id="female" 
+                value="female"
+                required>
+            <label for="female">Female</label>
+
+            <input 
+                type="radio" 
+                name="gender" 
+                id="non-binary" 
+                value="non-binary" 
+                required>
+            <label for="non-binary">Non-Binary</label>
+
+            <!-- Error message for gender -->
+            <span class="error" id="gender-error"></span>
+        </td>
+    </tr>
+                    
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+
+    <!--Contact Information-->
+
+                    <tr>
+                        <th colspan="4">Contact Information</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+
+                    <tr>
+                        <td class="td1"><label for="address1">Address Line 1:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="text" 
+                                name="address1" 
+                                id="address1" 
+                                maxlength="30" 
+                                title="Enter Street Address"
+                                required placeholder="Street Address"
+                                onblur="validateAddress1()"
+                            />
+                            <span class="error" id="address1-error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td1"><label for="address2">Address Line 2:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="text" 
+                                name="address2" 
+                                id="address2" 
+                                maxlength="30" 
+                                placeholder="Apt., Ste., #, etc.">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="city">City:</label></td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="city" 
+                                id="city" 
+                                maxlength="30" 
+                                required placeholder="City">
+                        </td>
+    <!--Dropdown Menu code for States was copied from here:
+    https://www.freeformatter.com/usa-state-list-html-select.html-->
+
+
+                        <td class="td1"><label for="state">State:</label></td>
+                        <td colspan="4">
+                            <select name="state" id="state" required>
+                                <option value="">Select a state</option>
+                            </select>
+                        </td>
+                        <p>
+                        <td class="td1"><label for="zip">Zip:</label></td>
+                        <td>
+                            <input 
+                                type="text" 
+                                name="zip" 
+                                id="zip" 
+                                maxlength="5" 
+                                required
+                                title="Enter Zip Code"
+                                placeholder="00000"
+                                pattern="^\d{5}(-{4})?$"
+                                onblur="validateZip()">
+                        </td>
+                    </tr>
+                    </p>
+                    <tr>
+                        <td class="td1"><label for="tel">Phone Number:</label></td>
+                        <td colspan="4">
+                            <input
+                                type="text"
+                                name="tel"
+                                id="tel"
+                                maxlength="10"
+                                required
+                                title="Enter Phone Number"
+                                placeholder="(000)000-0000"
+                                pattern="^\d{3}-\d{3}-\d{4}$"
+                                onblur="validateTel()">
+                        </td>
+                    </tr>
+                   <tr>
+                        <td class="td1"><label for="email">Email Address:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                required
+                                title="Enter Email Address"
+                                placeholder="Email Address"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                onblur="validateEmail()"> 
+                        </td>
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+
+    <!--Patient Medical History-->
+
+                    <tr>
+                        <th colspan="4">Medical History</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+                    <tr>
+        <td colspan="4">
+            <div class="centered-container">
+                <label for="history" class="checkbox-title">Check all that apply:</label>
+                <div class="checkbox-container">
+                    <div class="checkbox-column">
+                        <label><input type="checkbox" id="option1" value="Arthritic joint pain"> Arthritic Joint Pain</label>
+                        <label><input type="checkbox" id="option2" value="Trouble sleeping at night"> Trouble Sleeping at Night</label>
+                    </div>
+                    <div class="checkbox-column">
+                        <label><input type="checkbox" id="option3" value="Neck pain"> Neck Pain</label>
+                        <label><input type="checkbox" id="option4" value="Disc Problems"> Disc Problems</label>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+                    <tr>
+                        <td class="td1"><label for="notes">Additional Notes:</label></td>
+                        <td colspan="4">
+                            <textarea name="notes" id="notes" rows="4" cols="50" placeholder="Enter any additional notes here..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="range">How would you rate your pain (1 to 10)?:</label></td>
+                        <td>
+                            <input 
+                            type="range" 
+                            name="range" 
+                            id="range" 
+                            min="1" 
+                            max="10" 
+                            value="0"
+                            />
+                            <span id="range-slider"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+
+                    <!--Create User Login-->
+                    <tr>
+                        <th colspan="4">Create Account</th>
+                    </tr>
+                    <tr>
+                        <th colspan="4"><hr></th>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="uid">User ID:</label></td>
+                        <td colspan="4">
+                            <input
+                                type="text"
+                                name="uid"
+                                id="uid"
+                                maxlength="20"
+                                required
+                                title="Please enter a user ID:"
+                                placeholder="Your user ID">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td1"><label for="pword">Password:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="password" 
+                                name="pword" 
+                                id="pword"
+                                minlength="10" 
+                                required
+                                onblur="validatePword()"
+                                oninput="validatePword()"
+                                onfocus="validatePword()">
+                            <span class="error" id="pword-error"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><label for="confirm_pword">Confirm Password:</label></td>
+                        <td colspan="4">
+                            <input 
+                                type="password" 
+                                name="confirm_pword" 
+                                id="confirm_pword"
+                                minlength="10" 
+                                required
+                                onblur="ConfirmPword()"
+                                oninput="ConfirmPword()"
+                                onfocus="ConfirmPword()">
+                            <span class="error" id="confirm_pword-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="center-content">
+                            <input type="submit" name="submit" value="Submit">
+                            <input type="reset" name="reset" value="Reset">
+                            <input type="button" name="review" value="Review" onclick="reviewForm()">
+                            <input type="button" name="validate" id="validate" value="Validate" onclick="validateEverything()" />
+                        </td>
+                    </tr>
+                </table>
+                <img src="Spine_Drawing.png" id="side-image" alt="Side Image" />
+            </div>
+        <div class="pword-msg">
+            <span id="msg1"></span> <br/>
+            <span id="msg2"></span> <br/>
+            <span id="msg3"></span> <br/>
+            <span id="msg4"></span> <br/>
+            <span id="msg5"></span> <br/>
+            <span id="msg6"></span> <br/>
+            <span id="msg7"></span> <br/>
+            <span id="pword2-error"></span> <br/>
         </div>
-    </header>
+            <center>
+                <p id="showInput"></p>
+            </center>
+            </form>
+        </main>
 
-    <main>
-        <form id="signup" action="thankyou.html">
-            <table>
-                <tr>
-                    <th colspan="4">New Patient Registration</th>
-                </tr>
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="fname">First Name:</label></td>
-                    <td>
-                        <input 
-                            type="text" 
-                            name="fname" 
-                            id="fname" 
-                            maxlength="30" 
-                            required
-                            title="Only letters, apostrophes, and dashes allowed"
-                            pattern="[A-Za-z'-]{1,30}"
-                            onblur="validateFname()"
-                            placeholder="First Name"
-                        />
-                        <span class="error" id="fname-error"></span>
-                    </td>
-
-                    <td class="td1"><label for="mname">Middle Initial:</label></td>
-                    <td>
-                        <input
-                            type="text"
-                            name="mname"
-                            id="mname" 
-                            maxlength="1" 
-                            title="Enter Middle Initial"
-                            placeholder="M"
-                            pattern="[a-zA-Z']{0,1}"
-                            onblur="validateMname()"
-                        />
-                        <!-- Error message for middle initial -->
-                        <span class="error" id="mname-error"></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="td1"><label for="lname">Last Name:</label></td>
-                    <td>
-                        <input 
-                            type="text" 
-                            name="lname" 
-                            id="lname" 
-                            maxlength="30" 
-                            required
-                            title="Only letters, apostrophes, and dashes allowed"
-                            pattern="[A-Za-z'-]{1,30}"
-                            onblur="validateLname()"
-                            placeholder="Last Name"
-                        />
-                        <span class="error" id="lname-error"></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="td1"><label for="SSN">Social Security Number:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="password" 
-                            minlength="9"
-                            maxlength="11"
-                            name="SSN"
-                            id="SSN" 
-                            required
-                            title="Please enter your SSN"
-                            placeholder="XXX-XX-XXXX"
-                            onblur="validateSSN()"
-                        />
-                        <span class="error" id="SSN-error"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="dob">Date of Birth:</label></td>
-                    <td colspan="4">
-                        <input
-                            type="date"
-                            name="dob"
-                            id="dob"
-                            onblur="validateDob()"
-                            placeholder="MM/DD/YYYY"
-                            required
-                        />
-                        <span class="error" id="dob-error"></span>
-                    </td>
-                </tr>
-<!--Gender Radio Buttions (Male, Female, Non-Binary)-->
-                <tr>
-    <td class="td1"><label for="gender">Gender:</label></td>
-    <td colspan="4">
-        <input 
-            type="radio" 
-            name="gender" 
-            id="male" 
-            value="male" 
-            required>
-        <label for="male">Male</label>
-        
-        <input 
-            type="radio" 
-            name="gender" 
-            id="female" 
-            value="female"
-            required>
-        <label for="female">Female</label>
-
-        <input 
-            type="radio" 
-            name="gender" 
-            id="non-binary" 
-            value="non-binary" 
-            required>
-        <label for="non-binary">Non-Binary</label>
-
-        <!-- Error message for gender -->
-        <span class="error" id="gender-error"></span>
-    </td>
-</tr>
-                
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-
-<!--Contact Information-->
-
-                <tr>
-                    <th colspan="4">Contact Information</th>
-                </tr>
-
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-
-                <tr>
-                    <td class="td1"><label for="address1">Address Line 1:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="text" 
-                            name="address1" 
-                            id="address1" 
-                            maxlength="30" 
-                            title="Enter Street Address"
-                            required placeholder="Street Address"
-                            onblur="validateAddress1()"
-                        />
-                        <span class="error" id="address1-error"></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="td1"><label for="address2">Address Line 2:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="text" 
-                            name="address2" 
-                            id="address2" 
-                            maxlength="30" 
-                            placeholder="Apt., Ste., #, etc.">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="city">City:</label></td>
-                    <td>
-                        <input 
-                            type="text" 
-                            name="city" 
-                            id="city" 
-                            maxlength="30" 
-                            required placeholder="City">
-                    </td>
-<!--Dropdown Menu code for States was copied from here:
-https://www.freeformatter.com/usa-state-list-html-select.html-->
-
-
-                    <td class="td1"><label for="state">State:</label></td>
-                    <td colspan="4">
-                        <select name="state" id="state" required>
-                            <option value="">Select a state</option>
-                        </select>
-                    </td>
-                    <p>
-                    <td class="td1"><label for="zip">Zip:</label></td>
-                    <td>
-                        <input 
-                            type="text" 
-                            name="zip" 
-                            id="zip" 
-                            maxlength="5" 
-                            required
-                            title="Enter Zip Code"
-                            placeholder="00000"
-                            pattern="^\d{5}(-{4})?$"
-                            onblur="validateZip()">
-                    </td>
-                </tr>
-                </p>
-                <tr>
-                    <td class="td1"><label for="tel">Phone Number:</label></td>
-                    <td colspan="4">
-                        <input
-                            type="text"
-                            name="tel"
-                            id="tel"
-                            maxlength="10"
-                            required
-                            title="Enter Phone Number"
-                            placeholder="(000)000-0000"
-                            pattern="^\d{3}-\d{3}-\d{4}$"
-                            onblur="validateTel()">
-                    </td>
-                </tr>
-               <tr>
-                    <td class="td1"><label for="email">Email Address:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="email" 
-                            name="email" 
-                            id="email" 
-                            required
-                            title="Enter Email Address"
-                            placeholder="Email Address"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            onblur="validateEmail()"> 
-                    </td>
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-
-<!--Patient Medical History-->
-
-                <tr>
-                    <th colspan="4">Medical History</th>
-                </tr>
-
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-                <tr>
-                    <td colspan="4">
-<!-- Checkboxes have been placed inside a container, 
- structured so that the entire container can be centered on the form
- I read that center tags are a depreciating HTML attribute and using "centered-container" 
- is good practice for the longevity of code-->
-                        <div class="centered-container">
-                            <label for="history">Check all that apply:</label>
-                            <div class="checkbox-container">
-                                <label><input type="checkbox" id="option1" value="Arthritic joint pain"> Arthritic Joint Pain</label>
-                                <label><input type="checkbox" id="option2" value="Trouble sleeping at night"> Trouble Sleeping at Night</label>
-                                <label><input type="checkbox" id="option3" value="Neck pain"> Neck Pain</label>
-                                <label><input type="checkbox" id="option4" value="Disc Problems"> Disc Problems</label>
-                                <label><input type="checkbox" id="option5" value="Previous injury or surgery"> Previous Injury or Surgery</label>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="notes">Additional Notes:</label></td>
-                    <td colspan="4">
-                        <textarea name="notes" id="notes" rows="4" cols="50" placeholder="Enter any additional notes here..."></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="range">How would you rate your pain (1 to 10)?:</label></td>
-                    <td>
-                        <input 
-                        type="range" 
-                        name="range" 
-                        id="range" 
-                        min="1" 
-                        max="10" 
-                        value="0"
-                        />
-                        <span id="range-slider"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-
-                <!--Create User Login-->
-                <tr>
-                    <th colspan="4">Create Account</th>
-                </tr>
-                <tr>
-                    <th colspan="4"><hr></th>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="uid">User ID:</label></td>
-                    <td colspan="4">
-                        <input
-                            type="text"
-                            name="uid"
-                            id="uid"
-                            maxlength="20"
-                            required
-                            title="Please enter a user ID:"
-                            placeholder="Your user ID">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="td1"><label for="pword">Password:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="password" 
-                            name="pword" 
-                            id="pword"
-                            minlength="10" 
-                            required
-                            onblur="validatePword()"
-                            oninput="validatePword()"
-                            onfocus="validatePword()">
-                        <span class="error" id="pword-error"></span>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td1"><label for="confirm_pword">Confirm Password:</label></td>
-                    <td colspan="4">
-                        <input 
-                            type="password" 
-                            name="confirm_pword" 
-                            id="confirm_pword"
-                            minlength="10" 
-                            required
-                            onblur="ConfirmPword()"
-                            oninput="ConfirmPword()"
-                            onfocus="ConfirmPword()">
-                        <span class="error" id="confirm_pword-error"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="center-content">
-                        <input type="submit" name="submit" value="Submit">
-                        <input type="reset" name="reset" value="Reset">
-                        <input type="button" name="review" value="Review" onclick="reviewForm()">
-                        <input type="button" name="validate" id="validate" value="Validate" onclick="validateEverything()" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-    <div class="pword-msg">
-        <span id="msg1"></span> <br/>
-        <span id="msg2"></span> <br/>
-        <span id="msg3"></span> <br/>
-        <span id="msg4"></span> <br/>
-        <span id="msg5"></span> <br/>
-        <span id="msg6"></span> <br/>
-        <span id="msg7"></span> <br/>
-        <span id="pword2-error"></span> <br/>
+        <footer>
+            <p>&#169; 2025 Houston Spine Center <a href="footer.html">Contact Us!</a></p>
+        </footer>
     </div>
-        <center>
-            <p id="showInput"></p>
-        </center>
-        </form>
-    </main>
-
-    <footer>
-        <p>&#169; 2025 Houston Spine Center <a href="footer.html">Contact Us!</a></p>
-    </footer>  
 
     <script src="hw3 javascript.js"></script>
     
@@ -394,14 +408,6 @@ https://www.freeformatter.com/usa-state-list-html-select.html-->
         <button id="close-alert">OK</button>
     </div>
 </div>
-
-<img src="Human-Spine.png" id="side-image" alt="Side Image" />
-
-
-
-
-
-
 
 </body>
 
